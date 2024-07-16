@@ -5,25 +5,6 @@
     gap : 20px
 }
 
-#description-area{
-    width: 70vw;
-}
-
-#form-container{
-    width: 30vw;
-    padding: 20px 20px;
-    display: flex;
-    flex-direction: column;
-    gap : 10px;
-    background-color: antiquewhite;
-    border: 1px solid rgb(236, 184, 184);
-    margin-top: 20px;
-}
-
-.form-field > input {
-    margin-left: 4px;
-}
-
 .sold-out {
     background-color: rgb(225, 133, 133);
     padding: 10px

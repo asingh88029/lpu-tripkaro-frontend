@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import './Signin.css';
+import {} from "react-router-dom"
 
 import config from '../config';
 
 const {BASE_API_URL} = config
 
 function Signin({userInfo, setUserInfo}) {
+
+  const navigation = useNavigate()
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,13 +43,30 @@ function Signin({userInfo, setUserInfo}) {
       body : JSON.stringify(payload)
     }
 
-    console.log(OPTION)
-
     let res = await fetch(ENDPOINT, OPTION)
 
     res = await res.json()
 
-    console.log(res)
+    // console.log(res)
+    // TODO : using setUserInfo of App.js that we recieved through the props, we have to update the userInfo state of App.js
+
+    if(res.success){
+
+      const {userId, token, email, profileImage, name} = res;
+
+      setUserInfo({
+        isSignin : true,
+        userId : userId,
+        token : token,
+        email : email,
+        name : name,
+        profileImage : profileImage
+      })
+
+      // Redirect to home screen
+      navigation(-1)
+
+    }
 
   };
 

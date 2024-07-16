@@ -15,12 +15,13 @@ function App() {
     userId : "",
     token : "",
     email : "",
-    name : ""
+    name : "",
+    profileImage : ""
   })
 
   return (
     <BrowserRouter>
-      <Navbar/>
+      <Navbar userInfo={userInfo} setUserInfo={setUserInfo}/>
       <Routes>
         <Route path="/" element={<Home userInfo={userInfo} setUserInfo={setUserInfo}/>}/>
         <Route path="/signin" element={<Signin userInfo={userInfo} setUserInfo={setUserInfo}/>}/>
